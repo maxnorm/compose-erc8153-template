@@ -9,7 +9,7 @@ interface IFacet {
     function exportSelectors() external view returns (bytes memory);
 }
 
-contract DiamondInspectFacet {
+contract DiamondInspectFacet is IFacet {
     bytes32 constant DIAMOND_STORAGE_POSITION = keccak256("compose.erc8153.diamond");
 
     struct FacetNode {

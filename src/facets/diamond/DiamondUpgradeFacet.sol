@@ -78,7 +78,7 @@ interface IFacet {
     function exportSelectors() external pure returns (bytes memory);
 }
 
-contract DiamondUpgradeFacet {
+contract DiamondUpgradeFacet is IFacet {
     /**
      * @notice Thrown when a non-owner attempts an action restricted to owner.
      */
