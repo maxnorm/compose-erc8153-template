@@ -90,6 +90,8 @@ Start a local Ethereum node:
 anvil
 ```
 
+This will start a local node at `http://127.0.0.1:8545` with the default chain id `31337`.
+
 With custom port or chain id:
 
 ```bash

@@ -28,15 +28,16 @@ contract DeployDiamond is Script {
 
     function setUp() public {}
 
-    /// @notice Entrypoint when no args: reads VERBOSE from env (default false).
+    /// @notice Entrypoint for forge script: reads VERBOSE from env (default false).
     function run() public {
-        run(vm.envOr("VERBOSE", false));
+        runDeploy(vm.envOr("VERBOSE", false));
     }
 
     /// @notice Deploy the diamond. Set verbose true to log all facet selectors.
     /// @param verbose If true, log selectors per facet after deployment.
-    function run(bool verbose) public {
+    function runDeploy(bool verbose) internal {
         address owner = msg.sender;
+
         if (block.chainid != 31337) {
             owner = vm.envOr("DIAMOND_OWNER", msg.sender);
         }
